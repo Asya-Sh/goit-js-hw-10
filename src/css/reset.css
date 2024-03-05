@@ -13,11 +13,11 @@ p:last-child {
   margin-bottom: 0;
 }
 
-ul {
+/* ul {
   margin: 0;
   padding: 0;
   list-style: none;
-}
+} */
 
 a {
   color: currentColor;
@@ -28,8 +28,8 @@ button {
   cursor: pointer;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.btn {
+  margin-top: 30px;
+  margin-left: 40px;
+  color: #fff;
 }
