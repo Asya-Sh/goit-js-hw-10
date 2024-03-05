@@ -21,14 +21,16 @@ const options = {
     time_24hr: true,
     defaultDate: Date.now(),
     minuteIncrement: 1,
-    onClose: onDatePeckerClose,
+    onClose: onDatePickerClose,
   };
 
   const picker = flatpickr(elements.input, options);
 
-  function onDatePeckerClose (selectedDates) {
+  function onDatePickerClose (selectedDates) {
     const selectedDate = selectedDates[0];
     const currentDate = Date.now();
+    userSelectedDate = selectedDate;
+
     if (selectedDate < currentDate) {
    notifyPastTimedate();
       elements.start.disabled = true; 
@@ -41,7 +43,7 @@ const options = {
   function onStartClick() {
     
     elements.start.disabled = true;
-    const between = picker.selectedDates[0].getTime() - Date.now();
+    const between = userSelectedDate.getTime() - Date.now(); 
     if (between <= 0) {
       notifyPastTimedate();
       return;

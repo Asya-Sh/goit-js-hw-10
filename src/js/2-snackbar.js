@@ -1,7 +1,9 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import done from "../img/done.svg";
+import error from "../img/error.svg";
 
-const form = document.querySelector('.form');
+const form = document.querySelector('.form-delay');
 
 form.addEventListener('submit', onFormSubmit);
 
@@ -11,22 +13,30 @@ function onFormSubmit(event) {
   const delayInput = +event.currentTarget.elements.delay.value;
   const stateInput = event.currentTarget.elements.state.value;
 
-  namePromise(stateInput, delayInput)
+  createPromiseWithDelay(stateInput, delayInput)
     .then(delay => {
       iziToast.success({
-        message: `✅ Обіцянка виконана за ${delay}мс`
+        message: `Fulfilled promise in ${delay}ms`,
+        iconUrl: done,
+        backgroundColor: '#59A10D',
+        messageColor: '#fff',
+        position: "topRight"
       });
     })
     .catch(delay => {
       iziToast.error({
-        message: `❌ Обіцянка відхилена за ${delay}мс`,
+        message: `Rejected promise in ${delay}ms`,
+        iconUrl: error,
+        backgroundColor: '#EF4040',
+        messageColor: '#fff',
+        position: "topRight"
       });
     });
 
   event.currentTarget.reset();
 }
 
-function namePromise(btn, delay) {
+function createPromiseWithDelay(btn, delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (btn === 'fulfilled') {
