@@ -4,18 +4,18 @@
   | default @import url()
   |============================
 */
-/* @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css'); */
+ @import url('./reset.css');
+@import url('./1-timer.css');
+@import url('./2-snackbar.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+color: #2e2f42;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: #B5B5B5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,3 +23,5 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+
