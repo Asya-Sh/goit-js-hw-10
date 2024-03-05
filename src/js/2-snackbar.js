@@ -1,7 +1,7 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
-import done from "../img/done.svg";
-import error from "../img/error.svg";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import done from '../img/done.svg';
+import error from '../img/error.svg';
 
 const form = document.querySelector('.form-delay');
 
@@ -20,7 +20,7 @@ function onFormSubmit(event) {
         iconUrl: done,
         backgroundColor: '#59A10D',
         messageColor: '#fff',
-        position: "topRight"
+        position: 'topRight',
       });
     })
     .catch(delay => {
@@ -29,7 +29,7 @@ function onFormSubmit(event) {
         iconUrl: error,
         backgroundColor: '#EF4040',
         messageColor: '#fff',
-        position: "topRight"
+        position: 'topRight',
       });
     });
 
