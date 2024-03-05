@@ -5,32 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snackbar</title>
     
-  <script type="module" crossorigin src="/goit-js-hw-10/assets/modulepreload-polyfill-3cfb730f.js"></script>
-  <script type="module" crossorigin src="/goit-js-hw-10/assets/vendor-77e16229.js"></script>
+  <script type="module" crossorigin src="/goit-js-hw-10/commonHelpers2.js"></script>
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-3cfb730f.js">
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-77e16229.js">
   <link rel="stylesheet" href="/goit-js-hw-10/assets/vendor-7a007824.css">
-  <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-6197ea2c.css">
+  <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-137b123b.css">
 </head>
 <body>
-    <form class="form">
-        <label>
+  <header>
+    <a href="./index.html">Go to home</a>
+  </header>
+  <section class="wrapper-form">
+    <form class="form-delay">
+        <label class="delay-text">
           Delay (ms)
-          <input type="number" name="delay" required />
+          <input class="form-input" type="number" name="delay" required />
         </label>
       
-        <fieldset>
+        <fieldset class="state">
           <legend>State</legend>
-          <label>
-            <input type="radio" name="state" value="fulfilled" required />
+          <label class="state-inputs">
+            <input class="state-input" type="radio" name="state" value="fulfilled" required />
             Fulfilled
           </label>
-          <label>
-            <input type="radio" name="state" value="rejected" required />
+          <label class="state-inputs">
+            <input class="state-input" type="radio" name="state" value="rejected" required />
             Rejected
           </label>
         </fieldset>
       
-        <button type="submit">Create notification</button>
+        <button type="submit" data-create>Create notification</button>
       </form>
+    </section>
       
 </body>
 </html>
