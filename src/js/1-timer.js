@@ -1,11 +1,7 @@
-// Описаний в документації Flatpickr
 import flatpickr from "flatpickr";
-// Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 
-  // Описаний у документації iziToast
   import iziToast from "izitoast";
-  // Додатковий імпорт стилів
   import "izitoast/dist/css/iziToast.min.css";
   
 const elements = {
@@ -35,54 +31,48 @@ const options = {
     const currentDate = Date.now();
     if (selectedDate < currentDate) {
    notifyPastTimedate();
-      elements.start.disabled = true; // кнопка "Start" неактивною
+      elements.start.disabled = true; 
     } else {
-      elements.start.disabled = false; // кнопка "Start" активною
+      elements.start.disabled = false;
     }
-    // зберегти selectedDate в об'єкті
     picker.selectedDate = selectedDate;
 };
 
   function onStartClick() {
+    
+    elements.start.disabled = true;
     const between = picker.selectedDates[0].getTime() - Date.now();
     if (between <= 0) {
       notifyPastTimedate();
       return;
     }
     elements.input.disabled = true;
-    elements.start.disabled = true;
     updateTimer();
   
     intervalId = setInterval(updateTimer, 1000);
   }
-  //Конвертує мс
+  
   function convertMs(ms) {
-    // Number of milliseconds per unit of time
     const second = 1000;
     const minute = second * 60;
     const hour = minute * 60;
     const day = hour * 24;
   
-    // Remaining days
+
     const days = Math.floor(ms / day);
-    // Remaining hours
     const hours = Math.floor((ms % day) / hour);
-    // Remaining minutes
     const minutes = Math.floor(((ms % day) % hour) / minute);
-    // Remaining seconds
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   
     return { days, hours, minutes, seconds };
   }
 
-  //Обчислення різниці часу 
 function updateTimer() {
     const selectedDate = picker.selectedDate;
     const currentDate = Date.now();
     const ms = selectedDate - currentDate;
   
     if (ms < 1000) {
-      // Час вийшов, зупиняємо інтервал
       clearInterval(intervalId);
   
       elements.days.textContent = '00';
@@ -90,7 +80,6 @@ function updateTimer() {
       elements.minutes.textContent = '00';
       elements.seconds.textContent = '00';
     } else {
-      // оновлює інтерфейс
       const timeObject = convertMs(ms);
   
       elements.days.textContent = addLeadingZero(timeObject.days);
@@ -105,11 +94,9 @@ function updateTimer() {
   }
   
   elements.start.addEventListener('click', () => {
-    // обчислює раз на секунду
     intervalId = setInterval(updateTimer, 1000);;
   });
 
-// Повідомляє про вибрану дату в минулому
 function notifyPastTimedate() {
     iziToast.warning({
       theme: 'dark',
